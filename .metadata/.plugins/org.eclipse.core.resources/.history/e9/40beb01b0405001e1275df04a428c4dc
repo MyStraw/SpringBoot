@@ -1,0 +1,21 @@
+package com.rubypaper.controller;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController //이거 붙이면 스프링 부트에서 컨트롤 클래스에서 사용을 하겠다.
+//RestController과 Controller이 있다.
+public class BoardController{
+
+	public BoardController() {//생성자 생성.
+		System.out.println("=".repeat(50));
+		System.out.println("BordController가 생성되었습니다.");
+		System.out.println("=".repeat(50));
+	}
+	
+	@GetMapping("/hello") //겟 메서드에 hello url 호출되면 여기로 온다
+	
+	public String hello(String name) {
+		return "Hello : " + name;
+	}
+}

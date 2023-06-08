@@ -2,18 +2,18 @@ package edu.pnu.study.operator;
 
 import java.util.Calendar;
 
-public abstract class MyOperator {
+public abstract class MyOperator { //추상클래스
 
 	private String cmd;
 	private Calendar createdTime;
-	private Calendar lastUsedTime;
+	private Calendar lastUsedTime; //마지막으로 사용된 시간.
 	
 	public MyOperator(String cmd) {
 		this.cmd = cmd;
 		createdTime = lastUsedTime = Calendar.getInstance();
 	}
 	
-	public abstract int operate(int a, int b);
+	public abstract int operate(int a, int b); //각각 연산자에 맞도록 해야해서. 추상으로.
 
 	public String getCmd() {
 		return cmd;

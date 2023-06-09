@@ -36,21 +36,21 @@ public class MemberController {
 
 	@GetMapping("/member") // 모든 멤버 데이터를 리턴 (Create = get)
 	public List<Member> getMembers() {
-		return memberService.getMembers();
+		return memberService.getMembers(); //memberService.getMembers();
 	}
 
 	@PostMapping("/member") // 새로운 멤버 입력 (
-	public Member insertMember(Member member) {
-		return null;
+	public int insertMember(Member member) {
+		return memberService.insertMember(member);
 	}
 
 	@PutMapping("/member") // 멤버 이름, 암호 수정
-	public Member updateMember(Member member) {
-		return null;
+	public int updateMember(Member member) {
+		return memberService.updateMember(member);
 	}
 
-	@DeleteMapping("/member") // 멤버 삭제
-	public Member deleteMember() {
-		return null;
+	@DeleteMapping("/member/{id}") // 멤버 삭제
+	public int deleteMember(@PathVariable Long id) {
+		return memberService.deleteMember(id);
 	}
 }

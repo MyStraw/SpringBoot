@@ -1,0 +1,30 @@
+package edu.pnu.config;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class TestConfig {
+
+	public TestConfig() {// 생성자 생성.
+		System.out.println("=".repeat(50));
+		System.out.println("TestConfig가 생성되었습니다.");
+		System.out.println("=".repeat(50));
+	}
+	@Bean //이거 해주니까 아래꺼 실행되네~?
+	public TestBean testBean() {
+		return new TestBean();
+	}
+}
+
+
+
+//밑에... 새로 파일 만들기 싫으니 여기에 클래스 만들쟈~
+
+class TestBean{
+	public TestBean() {// 생성자 생성.
+		System.out.println("=".repeat(50));
+		System.out.println("TestBean이 생성되었습니다.");
+		System.out.println("=".repeat(50));
+	}
+}

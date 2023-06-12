@@ -1,0 +1,44 @@
+package edu.pnu.service;
+
+import java.util.List;
+
+import edu.pnu.dao.MemberInterface;
+import edu.pnu.domain.MemberVO;
+
+public class MemberService {
+	
+	private MemberInterface memberInterface;
+	
+	public MemberService() {
+		memberDao = new  MemberDaoH2Impl();
+
+		memberDao = new MemberDaoListImpl();		
+	} 
+	
+
+	public List<MemberVO> getMembers() {
+		
+		return null;
+	}
+
+	public MemberVO getMember(Integer id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public MemberVO addMember(MemberVO member) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public MemberVO updateMamber(MemberVO member) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public int deleteMember(Integer id) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

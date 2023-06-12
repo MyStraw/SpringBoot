@@ -1,0 +1,29 @@
+package edu.pnu.dao;
+
+import edu.pnu.domain.MemberVO;
+
+public class MemberDao {
+
+	public MemberVO getMember(Integer id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public MemberVO addMember(MemberVO member) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public MemberVO updateMamber(MemberVO member) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public int deleteMember(Integer id) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	
+
+}

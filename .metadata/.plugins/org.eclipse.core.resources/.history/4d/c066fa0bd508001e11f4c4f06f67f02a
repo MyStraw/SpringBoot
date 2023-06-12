@@ -1,0 +1,49 @@
+package edu.pnu.service;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import edu.pnu.dao.MemberDao;
+import edu.pnu.dao.MemberInterface;
+import edu.pnu.domain.MemberVO;
+
+public class MemberService implements MemberInterface {
+
+	private MemberDao memberDao;
+	private List<MemberVO> list;
+
+	public MemberService() {
+		memberDao = new MemberDaoH2Impl();
+
+//		memberDao = new MemberDaoListImpl();		
+	}
+
+	public List<MemberVO> getMembers() {
+		list = new ArrayList<>();
+		for (int i = 1; i <= 5; i++) {
+			list.add(new MemberVO(i, "1234", "이름" + i, new Date())); // 서비스 5개 만들어 바로.
+		}
+		return list;
+	}
+
+	public MemberVO getMember(Integer id) {
+		return memberDao.getMember(id);
+	}
+
+	public MemberVO addMember(MemberVO member) {
+
+		return memberDao.addMember(member);
+	}
+
+	public MemberVO updateMamber(MemberVO member) {
+
+		return memberDao.updateMamber(member);
+	}
+
+	public int deleteMember(Integer id) {
+
+		return memberDao.deleteMember(id);
+	}
+
+}

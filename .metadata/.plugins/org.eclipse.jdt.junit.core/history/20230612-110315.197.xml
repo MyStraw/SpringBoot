@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="MemberDaoTest" project="Chapter03" tests="1" started="1" failures="0" errors="0" ignored="0">
+  <testsuite name="edu.pnu.MemberDaoTest" time="0.353" displayname="MemberDaoTest" uniqueid="[engine:junit-jupiter]/[class:edu.pnu.MemberDaoTest]">
+    <testcase name="insertMemberTest" classname="edu.pnu.MemberDaoTest" time="0.353" displayname="insertMemberTest()" uniqueid="[engine:junit-jupiter]/[class:edu.pnu.MemberDaoTest]/[method:insertMemberTest()]"/>
+  </testsuite>
+</testrun>

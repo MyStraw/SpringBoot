@@ -1,0 +1,25 @@
+package edu.pnu.dao;
+
+import edu.pnu.domain.MemberVO;
+
+public class MemberDao {
+
+	public MemberVO getMember(Integer id) {		
+		return null;
+	}
+
+	public MemberVO addMember(MemberVO member) {		
+		return null;
+	}
+
+	public MemberVO updateMamber(MemberVO member) {		
+		return null;
+	}
+
+	public int deleteMember(Integer id) {		
+		return 0;
+	}
+
+	
+
+}

@@ -1,0 +1,23 @@
+package edu.pnu;
+
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.test.web.servlet.MockMvc; //테스트에서 제공해주는 객체
+
+//@SpringBootTest
+//@AutoConfiguration // 이건 전체 다 테스트 하는거. 이건 스프링부트 테스트랑 같이.
+@WebMvcTest //이걸 이용해서 컨트롤러를 테스트. 이건 컨트롤러만 테스트. 전체 다 테스트 하려면
+
+
+class Chapter03ApplicationTests {
+	@Test
+	void contextLoads() {
+		System.out.println("test");
+	}
+
+}

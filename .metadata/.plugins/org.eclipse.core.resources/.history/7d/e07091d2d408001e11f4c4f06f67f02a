@@ -1,0 +1,12 @@
+package edu.pnu.dao;
+
+import edu.pnu.domain.MemberVO;
+
+public class MemberDao {
+
+	public MemberVO getMember(Integer id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

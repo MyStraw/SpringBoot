@@ -1,15 +1,12 @@
 INDEX VERSION 1.132+C:\03Workspaces-STS4\.metadata\.plugins\org.eclipse.jdt.core
-2410617976.index
 2797012773.index
 3716688354.index
-2148537068.index
 21931464.index
 3256769183.index
 881209696.index
 1972857142.index
 1528236837.index
 1596919520.index
-4216954663.index
 4220634551.index
 2703682674.index
 834042714.index
@@ -25,13 +22,13 @@ INDEX VERSION 1.132+C:\03Workspaces-STS4\.metadata\.plugins\org.eclipse.jdt.core
 1179983265.index
 1865797976.index
 1554810963.index
-610186490.index
 4238419120.index
 1893911355.index
 4139413634.index
+3038341641.index
+577232093.index
 2199603575.index
 1609258901.index
-577232093.index
 306325443.index
 3641621120.index
 2623234683.index
@@ -49,12 +46,10 @@ INDEX VERSION 1.132+C:\03Workspaces-STS4\.metadata\.plugins\org.eclipse.jdt.core
 4286836213.index
 3164384212.index
 2846580041.index
-3837618442.index
 558024220.index
 634087406.index
 732138158.index
 303943564.index
-527489005.index
 1545379482.index
 2181988984.index
 1900055659.index

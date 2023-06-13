@@ -2,43 +2,43 @@ package edu.pnu.service;
 
 import java.util.List;
 
-import edu.pnu.dao.MemberDao;
-import edu.pnu.dao.MemberDaoListImpl;
+import edu.pnu.dao.MemberDaoH2Impl;
+import edu.pnu.dao.MemberInterface;
 import edu.pnu.domain.MemberVO;
 
 public class MemberService {
 
-	private MemberDao memberDao;
+	private MemberInterface memberInterface;;
 	private List<MemberVO> list;
 
 	public MemberService() {
-//		memberDao = new MemberDaoH2Impl();
+		memberInterface = new MemberDaoH2Impl();
 
-		memberDao = new MemberDaoListImpl();		
+	//	memberInterface = new MemberDaoListImpl();		
 	}
 
 	public List<MemberVO> getMembers() {
 		
-		return memberDao.getMambers();
+		return memberInterface.getMembers();
 	}
 
 	public MemberVO getMember(Integer id) {
-		return memberDao.getMember(id);
+		return memberInterface.getMember(id);
 	}
 
 	public MemberVO addMember(MemberVO member) {
 
-		return memberDao.addMember(member);
+		return memberInterface.addMember(member);
 	}
 
-	public MemberVO updateMamber(MemberVO member) {
+	public MemberVO updateMember(MemberVO member) {
 
-		return memberDao.updateMamber(member);
+		return memberInterface.updateMember(member);
 	}
 
 	public int deleteMember(Integer id) {
 
-		return memberDao.deleteMember(id);
+		return memberInterface.deleteMember(id);
 	}
 
 }

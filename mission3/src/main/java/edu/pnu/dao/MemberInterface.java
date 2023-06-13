@@ -8,7 +8,7 @@ public interface MemberInterface {
 	
 	List<MemberVO> getMembers();
 
-	MemberVO getmember (Integer id);	
+	MemberVO getMember (Integer id);	
 
 	MemberVO addMember(MemberVO member);
 

@@ -32,7 +32,7 @@ public class MemberController {
 	}
 
 	@GetMapping("/member/{id}")
-	public MemberVO getmember(@PathVariable Integer id) {
+	public MemberVO getMember(@PathVariable Integer id) {
 		return memberService.getMember(id);
 	}
 
@@ -43,7 +43,7 @@ public class MemberController {
 
 	@PutMapping("/member")
 	public MemberVO updateMember(MemberVO member) {
-		return memberService.updateMamber(member);
+		return memberService.updateMember(member);
 	}
 
 	@DeleteMapping("/member")

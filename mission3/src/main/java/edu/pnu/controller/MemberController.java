@@ -16,15 +16,15 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @RestController
 public class MemberController {
-
+	//콘->서->다
 	private MemberService memberService;
 
 	public MemberController() {
 		System.out.println("MemberController가 생성되었습니다.");
 		log.info("MemberController가 생성되었습니다."); // 이건 오른쪽 화살표로 보면 오른쪽에 찍혀있다
-
 		memberService = new MemberService();
 	}
+	//
 	
 	@GetMapping("/member")
 	public List<MemberVO> getMembers() {
@@ -32,7 +32,7 @@ public class MemberController {
 	}
 
 	@GetMapping("/member/{id}")
-	public MemberVO getMember(@PathVariable Integer id) {
+	public MemberVO getmember(@PathVariable Integer id) {
 		return memberService.getMember(id);
 	}
 

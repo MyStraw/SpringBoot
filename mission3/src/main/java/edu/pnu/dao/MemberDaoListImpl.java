@@ -7,16 +7,16 @@ import java.util.List;
 import edu.pnu.domain.MemberVO;
 
 public class MemberDaoListImpl implements MemberInterface {
-	
+
 	private List<MemberVO> list;
-	
+
 	public MemberDaoListImpl() {
 		list = new ArrayList<>();
-		for (int i = 1 ; i <= 5 ; i++) {
-			list.add(new MemberVO(i, "1234", "이름"+i, new Date())); //서비스 5개 만들어 바로.
+		for (int i = 1; i <= 5; i++) {
+			list.add(new MemberVO(i, "1234", "이름" + i, new Date())); // 서비스 5개 만들어 바로.
 		}
 	}
-	
+
 	@Override
 	public List<MemberVO> getMembers() {
 		return list;
@@ -30,7 +30,7 @@ public class MemberDaoListImpl implements MemberInterface {
 		}
 		return null;
 	}
-	
+
 	@Override
 	public MemberVO addMember(MemberVO member) {
 		member.setId(list.size() + 1);

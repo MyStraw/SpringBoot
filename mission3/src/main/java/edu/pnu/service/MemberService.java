@@ -8,13 +8,13 @@ import edu.pnu.domain.MemberVO;
 
 public class MemberService {
 
-	private MemberInterface memberInterface;;
+	private MemberInterface memberInterface;
 	private List<MemberVO> list;
 
 	public MemberService() {
 		memberInterface = new MemberDaoH2Impl();
 
-	//	memberInterface = new MemberDaoListImpl();		
+//		memberInterface = new MemberDaoListImpl();		
 	}
 
 	public List<MemberVO> getMembers() {

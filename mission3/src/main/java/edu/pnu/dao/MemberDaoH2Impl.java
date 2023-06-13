@@ -18,7 +18,7 @@ public class MemberDaoH2Impl implements MemberInterface {
 
 	private Connection con;
 
-	public MemberDaoH2Impl() { // 멤버다오 만듦과 동시에 커넥션 객체 만듦
+	public MemberDaoH2Impl() {
 		try {
 			Class.forName(driver);
 			con = DriverManager.getConnection(url, username, password);
@@ -75,13 +75,15 @@ public class MemberDaoH2Impl implements MemberInterface {
 			int ret = stmt.executeUpdate(String.format("insert into member (pass,name) values('%s','%s')",
 					member.getPass(), member.getName()));
 			stmt.close();
-			if (ret == 1)
+			if (ret == 1) {
 				System.out.println("입력됐어용");
-			return member;
+				return member;
+			}
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		System.out.println("입력됐어용");
+
 		return null;
 	}
 
@@ -92,12 +94,14 @@ public class MemberDaoH2Impl implements MemberInterface {
 			int ret = stmt.executeUpdate(String.format("update member set pass = '%s', name = '%s' where id = '%d'",
 					member.getPass(), member.getName(), member.getId()));
 			stmt.close();
-			if (ret == 1)
+			if (ret == 1) {
 				System.out.println("업뎃됐어용");
-			return member;
+				return member;
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+
 		return null;
 	}
 
@@ -114,4 +118,5 @@ public class MemberDaoH2Impl implements MemberInterface {
 		System.out.println("삭제됐어용");
 		return 1;
 	}
+
 }

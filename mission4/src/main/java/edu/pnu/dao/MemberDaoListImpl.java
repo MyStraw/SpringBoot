@@ -18,7 +18,7 @@ public class MemberDaoListImpl implements MemberInterface {
 	}
 	
 	@Override
-	public List<MemberVO> getMembers() {
+	public List<MemberVO> getMembers() {  //어렵
 		return list;
 	}
 

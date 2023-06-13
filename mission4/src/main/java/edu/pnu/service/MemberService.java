@@ -10,39 +10,44 @@ import edu.pnu.domain.MemberVO;
 
 public class MemberService {
 	private MemberInterface memberInterface;;
-	private List<MemberVO> list;
+//	private List<MemberVO> list;
 	private LogDao logDao;
 
 	public MemberService() {
 		memberInterface = new MemberDaoH2Impl();
 
-	//	memberInterface = new MemberDaoListImpl();	
+		// memberInterface = new MemberDaoListImpl();
 		logDao = new LogDao();
 	}
 
-	public Map<String, Object> getMembers() {
-		
-		return memberInterface.getMembers();
+	public List<MemberVO> getMembers() {
+		Map<String, Object> map = memberInterface.getMembers();
+		logDao.addLog(map.get("method").toString(), map.get("sqlstring").toString(), (boolean) map.get("success"));
+		return (List<MemberVO>) map.get("result");
 	}
 
-	public Map<String, Object> getMember(Integer id) {
-		return memberInterface.getMember(id);
+	public MemberVO getMember(Integer id) {
+		Map<String, Object> map = memberInterface.getMember(id);
+		logDao.addLog(map.get("method").toString(), map.get("sqlstring").toString(), (boolean) map.get("success"));
+		return (MemberVO) map.get("result");
 	}
 
-	public Map<String, Object> addMember(MemberVO member) {
-
-		return memberInterface.addMember(member);
+	public MemberVO addMember(MemberVO member) {
+		Map<String, Object> map = memberInterface.addMember(member);
+		logDao.addLog(map.get("method").toString(), map.get("sqlstring").toString(), (boolean) map.get("success"));
+		return (MemberVO) map.get("result");
 	}
 
-	public Map<String, Object> updateMember(MemberVO member) {
-
-		return memberInterface.updateMember(member);
+	public MemberVO updateMember(MemberVO member) {
+		Map<String, Object> map = memberInterface.updateMember(member);
+		logDao.addLog(map.get("method").toString(), map.get("sqlstring").toString(), (boolean) map.get("success"));
+		return (MemberVO) map.get("result");
 	}
 
-	public Map<String, Object> deleteMember(Integer id) {
-
-		return memberInterface.deleteMember(id);
+	public int deleteMember(Integer id) {
+		Map<String, Object> map = memberInterface.deleteMember(id);
+		logDao.addLog(map.get("method").toString(), map.get("sqlstring").toString(), (boolean) map.get("success"));
+		return (int) map.get("result");
 	}
-	
 
 }

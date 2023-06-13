@@ -30,27 +30,27 @@ public class MemberController {
 	@SuppressWarnings("unchecked")
 	@GetMapping("/member")
 	public List<MemberVO> getMembers() {
-		return (List<MemberVO>) memberService.getMembers().get("");
+		return memberService.getMembers();
 	}
 
 	@GetMapping("/member/{id}")
 	public MemberVO getMember(@PathVariable Integer id) {
-		return (MemberVO) memberService.getMember(id);
+		return memberService.getMember(id);
 	}
 
 	@PostMapping("/member")
 	public MemberVO addMember(MemberVO member) {
-		return (MemberVO) memberService.addMember(member);
+		return memberService.addMember(member);
 	}
 
 	@PutMapping("/member")
 	public MemberVO updateMember(MemberVO member) {
-		return (MemberVO) memberService.updateMember(member);
+		return memberService.updateMember(member);
 	}
 
 	@DeleteMapping("/member")
-	public MemberVO deleteMember(Integer id) {
-		return (MemberVO) memberService.deleteMember(id);
+	public int deleteMember(Integer id) {
+		return memberService.deleteMember(id);
 
 	}
 

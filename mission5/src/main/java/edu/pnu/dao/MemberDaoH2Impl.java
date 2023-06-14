@@ -14,10 +14,10 @@ import org.springframework.stereotype.Repository;
 
 import edu.pnu.domain.MemberVO;
 
-@Repository
+//@Repository
 public class MemberDaoH2Impl implements MemberInterface {
 
-	@Autowired
+//	@Autowired
 	private DataSource dataSource;
 
 	private int getMaxID() {

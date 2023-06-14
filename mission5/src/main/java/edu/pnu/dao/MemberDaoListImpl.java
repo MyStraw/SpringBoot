@@ -13,12 +13,12 @@ import org.springframework.stereotype.Repository;
 
 import edu.pnu.domain.MemberVO;
 
-//@Repository
+@Repository
 public class MemberDaoListImpl implements MemberInterface {
 	
 	
-//	@Autowired
-//	private DataSource dataSource;
+@Autowired
+private DataSource dataSource;
 	
 	private List<MemberVO> list;
 	private Map<String, Object> map;
@@ -33,17 +33,18 @@ public class MemberDaoListImpl implements MemberInterface {
 	}
 	
 	@Override
-	public Map<String, Object> getMembers() {  //어렵		
+	public Map<String, Object> getMembers() {  //어렵				
 		map.put("method", "Get");
-		map.put("sqlstring", "스트링 없쬬");
+		map.put("sqlstring", "모든데이터");
 		map.put("success", true);
 		return map;
 	}
 
 	@Override
 	public Map<String, Object> getMember(Integer id) {
+		map = new HashMap<>();
 		map.put("method", "Get");
-		map.put("sqlstring", "스트링 없쬬");
+		map.put("sqlstring", "특정누구만");
 		map.put("success", true);
 		for (MemberVO m : list) {
 			if (m.getId() == id)
@@ -54,11 +55,12 @@ public class MemberDaoListImpl implements MemberInterface {
 	
 	@Override
 	public Map<String, Object> addMember(MemberVO member) {
+		map = new HashMap<>();
 		member.setId(list.size() + 1);
 		member.setRegidate(new Date());
 		list.add(member);
 		map.put("method", "Post");
-		map.put("sqlstring", "스트링 없쬬");
+		map.put("sqlstring", "추가");
 		map.put("success", true);
 		map.put("result", member.getId());
 		return map;
@@ -66,9 +68,9 @@ public class MemberDaoListImpl implements MemberInterface {
 
 	@Override
 	public Map<String, Object> updateMember(MemberVO member) {
+		map = new HashMap<>();
 		map.put("method", "Put");
-		map.put("sqlstring", "스트링 없쬬");
-		
+		map.put("sqlstring", "업뎃");		
 		for (MemberVO m : list) {
 			if (m.getId() == member.getId()) {
 				m.setName(member.getName());
@@ -83,9 +85,9 @@ public class MemberDaoListImpl implements MemberInterface {
 
 	@Override
 	public Map<String, Object> deleteMember(Integer id) {
+		map = new HashMap<>();
 		map.put("method", "Delete");
-		map.put("sqlstring", "스트링 없쬬");
-		
+		map.put("sqlstring", "삭제");		
 		for (MemberVO m : list) {
 			if (m.getId() == id) {
 				list.remove(m);

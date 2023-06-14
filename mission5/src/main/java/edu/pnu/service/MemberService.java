@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import edu.pnu.dao.LogDao;
-import edu.pnu.dao.MemberDaoH2Impl;
+import edu.pnu.dao.MemberDaoListImpl;
 import edu.pnu.dao.MemberInterface;
 import edu.pnu.domain.MemberVO;
 
@@ -20,8 +20,8 @@ public class MemberService {
 	private LogDao logDao;
 
 	public MemberService() {
-		memberInterface = new MemberDaoH2Impl();
-		// memberInterface = new MemberDaoListImpl();
+		//memberInterface = new MemberDaoH2Impl();
+		 memberInterface = new MemberDaoListImpl();
 		logDao = new LogDao();
 	}
 

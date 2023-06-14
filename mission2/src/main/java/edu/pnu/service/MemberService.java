@@ -2,18 +2,21 @@ package edu.pnu.service;
 
 import java.util.List;
 
-import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import edu.pnu.dao.MemberDao;
 import edu.pnu.domain.Member;
 
+@Service
 public class MemberService { //왜 서비스를 이리 굴려서 쓰나~ 걍 해봐.
 	
+	@Autowired
 	private MemberDao memberDao;	
 	
-	public MemberService() {
-		memberDao = new MemberDao();		
-	}
+//	public MemberService() {
+//		memberDao = new MemberDao();		
+//	}
 	
 	public Member getMember(Long id) {
 		return memberDao.getMember(id);

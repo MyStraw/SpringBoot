@@ -80,14 +80,14 @@ public class MemberDaoH2Impl implements MemberInterface {
 	@Override
 	public Map<String, Object> getMember(Integer id) {
 		Map<String, Object> map = new HashMap<>();
-		String sql = "select * from Member where id=%d";
+		String sql = String.format("select * from Member where id=%d", id);
 		map.put("method", "Get");
 		map.put("sqlstring", sql);
 		map.put("success", false);
 		try {
 			Statement stmt = con.createStatement();
 
-			ResultSet rs = stmt.executeQuery(String.format(sql, id));
+			ResultSet rs = stmt.executeQuery(sql);
 			rs.next();
 			MemberVO m = MemberVO.builder().id(rs.getInt("id")).pass(rs.getString("pass")).name(rs.getString("name"))
 					.regidate(rs.getDate("regidate")) //
@@ -105,14 +105,14 @@ public class MemberDaoH2Impl implements MemberInterface {
 	@Override
 	public Map<String, Object> addMember(MemberVO member) {
 		Map<String, Object> map = new HashMap<>();
-		String sql = "insert into member (pass,name) values('%s','%s')";
+		String sql = String.format("insert into member (pass,name) values('%s','%s')", member.getPass(), member.getName());
 		map.put("method", "Post");
 		map.put("sqlstring", sql);
 		map.put("success", false);
 
 		try {
 			Statement stmt = con.createStatement();
-			int ret = stmt.executeUpdate(String.format(sql, member.getPass(), member.getName()));
+			int ret = stmt.executeUpdate(sql);
 			map.put("success", true);
 			stmt.close();
 			if (ret == 1)
@@ -129,7 +129,7 @@ public class MemberDaoH2Impl implements MemberInterface {
 	@Override
 	public Map<String, Object> updateMember(MemberVO member) {
 		Map<String, Object> map = new HashMap<>();
-		String sql = "update member set pass = '%s', name = '%s' where id = '%d'";
+		String sql = String.format("update member set pass = '%s', name = '%s' where id = %d", member.getPass(), member.getName(), member.getId());
 
 		map.put("method", "Put");
 		map.put("sqlstring", sql);
@@ -138,7 +138,7 @@ public class MemberDaoH2Impl implements MemberInterface {
 		try {
 			Statement stmt = con.createStatement();
 
-			int ret = stmt.executeUpdate(String.format(sql, member.getPass(), member.getName(), member.getId()));
+			int ret = stmt.executeUpdate(sql);
 
 			stmt.close();
 			if (ret == 1)
@@ -155,14 +155,14 @@ public class MemberDaoH2Impl implements MemberInterface {
 	@Override
 	public Map<String, Object> deleteMember(Integer id) {
 		Map<String, Object> map = new HashMap<>();
-		String sql = "delete from member where id='%d'";
+		String sql = String.format("delete from member where id= %d", id);
 		map.put("method", "Delete");
 		map.put("sqlstring", sql);
 		map.put("success", false);
 		try {
 			Statement stmt = con.createStatement();
 
-			int ret = stmt.executeUpdate(String.format(sql, id));
+			int ret = stmt.executeUpdate(sql);
 
 			stmt.close();
 			map.put("success", true);

@@ -4,6 +4,7 @@ import java.util.Date;
 
 import lombok.Builder;
 @Builder
+
 public class MemberVO {
 	
 	private int id;

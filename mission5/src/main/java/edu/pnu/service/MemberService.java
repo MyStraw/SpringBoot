@@ -4,30 +4,37 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import edu.pnu.dao.LogDao;
-import edu.pnu.dao.MemberDaoListImpl;
 import edu.pnu.dao.MemberInterface;
 import edu.pnu.domain.MemberVO;
 
-@Service
+//@Service
+//@RequiredArgsConstructor
 public class MemberService {
 	
 	@Autowired
-	private MemberInterface memberInterface;;
+	private MemberInterface memberInterface;
+	
 //	private List<MemberVO> list;
+	
+	@Autowired	
 	private LogDao logDao;
+	
+	
 
-	public MemberService() {
-		//memberInterface = new MemberDaoH2Impl();
-		 memberInterface = new MemberDaoListImpl();
-		logDao = new LogDao();
-	}
+//	public MemberService() {
+//		memberInterface = new MemberDaoH2Impl();
+//		 memberInterface = new MemberDaoListImpl();
+//		logDao = new LogDao();
+//	}
 
 	public List<MemberVO> getMembers() {
 		Map<String, Object> map = memberInterface.getMembers();
-		logDao.addLog(map.get("method").toString(), map.get("sqlstring").toString(), (boolean) map.get("success"));
+		String method = map.get("method").toString();
+		String sql = map.get("sqlstring").toString();
+		boolean success = (boolean) map.get("success");
+		logDao.addLog(method, sql, success);
 		return (List<MemberVO>) map.get("result");
 	}
 

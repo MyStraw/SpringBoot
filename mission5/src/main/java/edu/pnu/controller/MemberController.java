@@ -18,15 +18,20 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @RestController
 public class MemberController {
-
-	private MemberService memberService;
 	
 	@Autowired 
-	public MemberController(MemberService memberService) {
-		this.memberService = memberService;
-	}	
+	private MemberService memberService;
+	
+	
+	//생성자 이용한 방법
+//	@Autowired 
+//	public MemberController(MemberService memberService) {
+//		this.memberService = memberService;
+//	}	
 
 
+	public MemberController() {
+	}
 
 	@SuppressWarnings("unchecked")
 	@GetMapping("/member")

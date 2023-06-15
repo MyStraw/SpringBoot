@@ -13,11 +13,11 @@ import org.springframework.stereotype.Repository;
 
 import edu.pnu.domain.MemberVO;
 
-@Repository
+//@Repository
 public class MemberDaoListImpl implements MemberInterface {
 
-	@Autowired
-	private DataSource dataSource;
+//	@Autowired
+//	private DataSource dataSource;
 
 	private List<MemberVO> list;
 
@@ -92,8 +92,8 @@ public class MemberDaoListImpl implements MemberInterface {
 	}
 
 	@Override
-	public Map<String, Object> deleteMember(Integer id) {	
-		
+	public Map<String, Object> deleteMember(Integer id) {
+
 		for (MemberVO m : list) {
 			if (m.getId() == id) {
 				list.remove(m);

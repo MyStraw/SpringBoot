@@ -9,17 +9,20 @@ import java.util.Map;
 
 import javax.sql.DataSource;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
-
 import edu.pnu.domain.MemberVO;
+import lombok.RequiredArgsConstructor;
 
 //@Repository
+@RequiredArgsConstructor
 public class MemberDaoH2Impl implements MemberInterface {
 
-//	@Autowired
-	private DataSource dataSource;
+	//@Autowired
+	private final DataSource dataSource;
 
+//	@Autowired
+//	public MemberDaoH2Impl(DataSource dataSource) {
+//		this.dataSource = dataSource;
+//	}
 	private int getMaxID() {
 		try {
 			Statement stmt = dataSource.getConnection().createStatement();

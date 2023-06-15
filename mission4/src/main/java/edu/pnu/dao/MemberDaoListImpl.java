@@ -2,64 +2,104 @@ package edu.pnu.dao;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import edu.pnu.domain.MemberVO;
 
+
 public class MemberDaoListImpl implements MemberInterface {
-	
+
+
+
 	private List<MemberVO> list;
-	
+
 	public MemberDaoListImpl() {
+
 		list = new ArrayList<>();
-		for (int i = 1 ; i <= 5 ; i++) {
-			list.add(new MemberVO(i, "1234", "이름"+i, new Date())); //서비스 5개 만들어 바로.
+		for (int i = 1; i <= 5; i++) {
+			list.add(new MemberVO(i, "1234", "이름" + i, new Date())); // 서비스 5개 만들어 바로.
+
 		}
-	}
-	
-	@Override
-	public List<MemberVO> getMembers() {  //어렵
-		return list;
 	}
 
 	@Override
-	public MemberVO getMember(Integer id) {
+	public Map<String, Object> getMembers() { // 어렵
+		Map<String, Object> map = new HashMap<>();
+		map.put("method", "Get");
+		map.put("sqlstring", "모든데이터");
+		map.put("success", true);
+		map.put("result", list);
+		return map;
+	}
+
+	@Override
+	public Map<String, Object> getMember(Integer id) {
+
 		for (MemberVO m : list) {
-			if (m.getId() == id)
-				return m;
+			if (m.getId() == id) {
+				Map<String, Object> map = new HashMap<>();
+				map.put("method", "Get");
+				map.put("sqlstring", "특정누구만");
+				map.put("success", true);
+				map.put("result", m);
+				return map;
+			}
 		}
 		return null;
 	}
-	
-	@Override
-	public MemberVO addMember(MemberVO member) {
-		member.setId(list.size() + 1);
-		member.setRegidate(new Date());
-		list.add(member);
-		return member;
+
+	private int getNextId() {
+		return list.size() + 1;
 	}
 
 	@Override
-	public MemberVO updateMember(MemberVO member) {
+	public Map<String, Object> addMember(MemberVO member) {
+		member.setId(list.size() + 1);
+		member.setRegidate(new Date());
+		list.add(member);
+		Map<String, Object> map = new HashMap<>();
+		map.put("method", "Post");
+		map.put("sqlstring", "추가");
+		map.put("success", true);
+		map.put("result", member);
+		return map;
+	}
+
+	@Override
+	public Map<String, Object> updateMember(MemberVO member) {
+
 		for (MemberVO m : list) {
 			if (m.getId() == member.getId()) {
 				m.setName(member.getName());
 				m.setPass(member.getPass());
-				return m;
+				Map<String, Object> map = new HashMap<>();
+				map.put("method", "Put");
+				map.put("sqlstring", "업뎃");
+				map.put("success", true);
+				map.put("result", m);
+				return map;
 			}
 		}
 		return null;
 	}
 
 	@Override
-	public int deleteMember(Integer id) {
+	public Map<String, Object> deleteMember(Integer id) {	
+		
 		for (MemberVO m : list) {
 			if (m.getId() == id) {
 				list.remove(m);
-				return 1;
+				Map<String, Object> map = new HashMap<>();
+				map.put("method", "Delete");
+				map.put("sqlstring", "삭제");
+				map.put("success", true);
+				map.put("result", 1);
+				return map;
 			}
 		}
-		return -1;
+		return null;
 	}
 
 }

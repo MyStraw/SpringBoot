@@ -3,7 +3,6 @@ package edu.pnu;
 import java.util.List;
 
 import org.junit.jupiter.api.MethodOrderer.OrderAnnotation; //이걸 임포트 해야된다.
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
@@ -11,7 +10,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import edu.pnu.dao.MemberDaoListImpl;
 import edu.pnu.dao.MemberInterface;
-import edu.pnu.domain.Member;
+import edu.pnu.domain.MemberVO;
+//Chapter03에서 쓴거 그대로 베껴왔네. 나만의 걸로 다시 만들어야해.
 
 @SpringBootTest
 @TestMethodOrder(OrderAnnotation.class) //메소드 오더다. 클래스 오더말고 이거 택해
@@ -46,7 +46,7 @@ public class MemberDaoTest {
 //			memberDao.insertMember(m);
 
 			//파라미터가 필요한 생성자를 이용한 방법. @AllArgsConstructor
-			memberInterface.insertMember(new Member(-1L, "name" + i, 20 + i, "nickname" + i));
+			memberInterface.addMember(new MemberVO(-1L, "name" + i, 20 + i, "nickname" + i));
 			//insert 할때 의미없는 데이터, 사용 안하니까 -1 넣었다. 100 넣어도 된다. id는 어차피 오토 인크리먼트
 		}
 	}
@@ -58,8 +58,8 @@ public class MemberDaoTest {
 	//그래서 맨위에 @TestMethodOrder(OrderAnnotation.class) 이걸로 메소드 순서를 정해
 	public void selectAllMemberTest() {
 		MemberInterface memberDao = new MemberDaoListImpl();		
-		List<Member> list = memberDao.getMembers();
-		for(Member m : list) {
+		List<MemberVO> list = memberDao.getMembers();
+		for(MemberVO m : list) {
 			System.out.println(m);
 		}
 	}	

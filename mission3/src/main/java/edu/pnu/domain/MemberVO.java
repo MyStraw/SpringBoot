@@ -19,6 +19,9 @@ import lombok.ToString;
 
 public class MemberVO {
 	
+	public MemberVO(long l, String pass2, int i, String string) {
+		// TODO Auto-generated constructor stub
+	}
 	private int id;
 	private String pass;
 	private String name;

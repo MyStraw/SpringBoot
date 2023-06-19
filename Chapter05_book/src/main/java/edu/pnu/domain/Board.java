@@ -17,6 +17,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+//엔티티 클래스. DB의 테이블을 매핑하는게 @Entity. 
 @Getter
 @Setter
 @ToString
@@ -34,7 +35,7 @@ public class Board {
 	@Column(length = 32) //디폴트가 255
 	private String writer;
 	private String content;
-	@Temporal(TemporalType.TIMESTAMP)
+	@Temporal(TemporalType.TIMESTAMP) //JPA에서 날짜와 시간 유형을 DB에 매핑하는 방법을 지정하는 어노테이션
 	private Date createDate;
 	private Long cnt;
 	

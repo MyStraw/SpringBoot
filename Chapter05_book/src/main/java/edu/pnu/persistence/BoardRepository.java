@@ -10,7 +10,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import edu.pnu.domain.Board;
 
 public interface BoardRepository extends JpaRepository<Board, Long> {
-	// T는 엔티티 네임. 유저, ID는 ID타입
+	// <T, ID>T는 엔티티 네임. 유저, ID는 ID타입을 기입
 
 //	List<Board> findByTitleLike(String title);
 

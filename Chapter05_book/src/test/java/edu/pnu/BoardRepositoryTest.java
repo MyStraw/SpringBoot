@@ -1,10 +1,14 @@
 package edu.pnu;
 
+import java.util.Arrays;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 
 import edu.pnu.domain.Board;
 import edu.pnu.persistence.BoardRepository;
@@ -42,7 +46,7 @@ class BoardRepositoryTest {
 //		}
 //	}
 
-	@Test
+//	@Test
 	public void testGetBoard() {
 
 //		Optional<Board> opt = boardRepo.findById(1L); //findById 옵셔널이 get
@@ -52,7 +56,7 @@ class BoardRepositoryTest {
 		System.out.println(board);
 	}
 
-	@Test
+//	@Test
 	public void testUpdateBoard() {
 		{
 			Board board = boardRepo.findById(1L).get();
@@ -75,7 +79,7 @@ class BoardRepositoryTest {
 //		boardRepo.deleteById(2L); //테이블 2행 삭제
 //	}
 
-	@Test
+//	@Test
 	public void testFindAll() {
 		List<Board> list = boardRepo.findAll(); // findAll(); 까지만 하면 얘가 뭔가 리턴해줘야 할게 있는데 어떻게? 마우스 얹져봐.
 		System.out.println("-------------------------------");
@@ -86,6 +90,69 @@ class BoardRepositoryTest {
 
 	}
 	
+//	@Test
+//	public void testByTitleLike(String title) {
+//		System.out.println("-".repeat(80));
+//		List<Board> list = boardRepo.findByTitleLike("1"); //페이징에 걸린거 말고 위에걸로 해보셈
+//		System.out.println("타이틀이 1이 포함된 데이터 출력");
+//		for (Board b : list) {
+//			System.out.println(b);
+//		}
+//		System.out.println("-".repeat(80));
+//	}
+	
+	
+	
+	
+	
+	
 	
 
+	// --------------------
+
+//	@Test // test만 골뱅이 해주면 실행 안한다.
+	public void testQueryAnnotationTest1() {
+		// select b from Board b where b.title like '%title1' order by b.seq desc
+		// 이런 쿼리가 날라가는거랑 똑같은 효과
+		List<Board> list = boardRepo.queryAnnotationTest1("title1");
+		for (Board b : list) {
+			System.out.println(b);
+		}
+	}
+	
+//	@Test // test만 골뱅이 해주면 실행 안한다.
+	public void testQueryAnnotationTest2() {		
+		List<Board> list = boardRepo.queryAnnotationTest2("title1");
+		for (Board b : list) {
+			System.out.println(b);
+		}
+	}
+	
+//	@Test // test만 골뱅이 해주면 실행 안한다.
+	public void testQueryAnnotationTest3() {	
+		List<Object[]> list = boardRepo.queryAnnotationTest3("title1");
+		for (Object[] b : list) {
+			System.out.println(Arrays.toString(b));
+		}
+	}
+	
+//	@Test // test만 골뱅이 해주면 실행 안한다.
+	public void testQueryAnnotationTest4() {	
+		List<Object[]> list = boardRepo.queryAnnotationTest4("title1");
+		for (Object[] b : list) {
+			System.out.println(Arrays.toString(b));
+		}
+	}
+	
+	@Test
+	public void testQueryAnnotationTest5() { //스태틱펑션. 페이지번호, 레코드 카운트, 출력할 sort.
+		//어라 근데 쿼리에서 asc로 정렬 했는데? 그럼 누가 더 쎄? PageRequest 컨트롤 클릭으로 보기
+		//오름차순으로. 3개씩 0페이지 잘라서 가져왔네
+		Pageable paging = PageRequest.of(5, 5); //쿼리에 order by 해놓으면 밑에처럼 소팅 필요가없네. 이렇게 하면 돼
+//		Pageable paging = PageRequest.of(0, 3, Sort.Direction.DESC, "seq"); //seq 대신 cnt로도 해보자
+		List<Board> list = boardRepo.queryAnnotationTest5(paging);
+		for (Board b : list) {
+			System.out.println("--->"+b);
+		}
+	}
 }

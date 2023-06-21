@@ -14,7 +14,7 @@ import edu.pnu.service.MemberService;
 public class MemberConfig {
 	
 	
-	@Bean
+	@Bean //이거하면 @Service, @Repository 같은걸 할필요가 없지.
 	public MemberService memberService() {
 		return new MemberService();
 	}

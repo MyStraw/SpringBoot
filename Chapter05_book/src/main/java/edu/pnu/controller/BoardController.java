@@ -92,7 +92,7 @@ public class BoardController {
 	}
 	
 //	@GetMapping("/findpage")
-//	public  List<Board> findPage(@Param("pm")Integer pagenum, Integer size) {	
+//	public  List<Board> findPage(Integer pagenum, Integer size) {	
 //		Pageable paging = PageRequest.of(pagenum, size);
 //		Page<Board> page = boardRepo.findAll(paging);		
 //		return page.getContent();

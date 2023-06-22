@@ -1,0 +1,33 @@
+<html xmlns:th="www.thymeleaf.org">
+<!--이거 대신 붙이는게 th 붙이는거. 이렇게 속성 정의. www.thy~~.org 매번 일일이 입력 안하게.-->
+<head>
+	<title>게시 글 목록</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body th:align="center">
+
+	<h1>게시글 목록</h1>
+	<table th:align="center" border="1" cellpadding="0" cellspacing="0" th:width="700">
+		<tr>
+			<th bgcolor="orange" width="100">번호</th>
+			<th bgcolor="orange" width="200">제목</th>
+			<th bgcolor="orange" width="150">작성자</th>
+			<th bgcolor="orange" width="150">등록일</th>
+			<th bgcolor="orange" width="100">조회수</th>
+		</tr>
+		<!--forEach 돌듯이 each로 반복돈다-->
+		<tr th:each="board, state : ${boardList}">
+			<td th:text="${state.count}">
+			<!--<td th:text="${board.title }">-->
+			<td><a th:href="@{/getBoard(seq=${board.seq})}"
+			th:text="${board.title}"></a></td>	
+			<td th:text="${board.writer }">
+			<td th:text="${#dates.format(board.createDate, 'yyyy-MM-dd')}">
+			<td th:text="${board.cnt }">
+		</tr>
+	</table>
+	<br> 
+	<a th:href="@{/insertBoard}">새글 등록</a>
+</body>
+</html>

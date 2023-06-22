@@ -3,6 +3,8 @@ package edu.pnu.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class TestController {
@@ -27,6 +29,21 @@ public class TestController {
 		model.addAttribute("data", "홍길동"); //model.jsp 에 있는 data. 디스패쳐 서블릿이 호출해서 모델안에
 		//있는 데이터를 쪼개서 model.jsp를 호출하면서 리퀘스트 형태로 다 넣어준다.
 		return "model";
+	}
+	
+	@GetMapping("/test21")
+	public @ResponseBody String test21() {
+		return "test2 Get";
+	}
+	
+	@PostMapping("/test22")
+	public @ResponseBody String test22() {
+		return "test2 Post";
+	}
+	
+	@GetMapping("/test2")
+	public String test1() {
+		return "redirect:test2";
 	}
 }
 

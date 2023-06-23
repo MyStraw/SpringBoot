@@ -8,6 +8,9 @@
 <body th:align="center">
 
 	<h1>게시글 목록</h1>
+	<h3><font th:if="${session['member'] !=null}" color="red" th:text="${session['member'].name}"></font>님 게시판 입장을 환영합니다.</h3>
+	<a th:href="@{/}">홈</a>
+	<a th:href="@{/logout}">LOG_OUT</a>	
 	<table th:align="center" border="1" cellpadding="0" cellspacing="0" th:width="700">
 		<tr>
 			<th bgcolor="orange" width="100">번호</th>

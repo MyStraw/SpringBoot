@@ -22,7 +22,7 @@ import lombok.ToString;
 @Table(name="station_arrive")
 public class Station_arrive {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long key;
+	private Long seq;
 	private Long train;
 	private String station;
 	private String arrive;

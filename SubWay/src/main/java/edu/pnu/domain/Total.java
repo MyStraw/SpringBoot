@@ -1,5 +1,6 @@
 package edu.pnu.domain;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -25,7 +26,7 @@ import lombok.ToString;
 public class Total {
 	private String line_number;
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int station_code;
+	private Long station_code;
 	private String station_name;
 	private String english_name;
 	private String station_add;
@@ -48,6 +49,7 @@ public class Total {
 	private Long outside_sliding;
 	private Long emergency_up;
 	private Long emergency_down;
+	@Column(length = 1000)
 	private String history;	
 
 }

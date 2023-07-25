@@ -1,5 +1,6 @@
 package edu.pnu.domain;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -23,8 +24,9 @@ import lombok.ToString;
 
 public class Train {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long seq;
-	private Long train_no;
+	private Long seq;	
+	@Column(name = "train_no")
+	private Long trainNo;
 	private String start;
 	private String end;
 	private String days;	

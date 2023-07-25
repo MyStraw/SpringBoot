@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import edu.pnu.domain.Station_arrive;
@@ -40,5 +41,17 @@ public class SubwayController {
 	public List<Train> getTrain() {
 		return trainRepo.findAll();
 	}
+	
+	@GetMapping("/train/{trainNo}/{start}")
+	public List<Train> getTrainByTrainNo(@PathVariable Long trainNo, @PathVariable String start) {
+	    return trainRepo.findByTrainNoAndStart(trainNo,start);
+	}
+	
+//	@GetMapping("/train")
+//	public Train getTrainByTrainNo(@RequestParam Long train_no) {
+//	    return trainRepo.findByTrainNo(train_no);
+//	}
+
+
 
 }

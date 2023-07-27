@@ -30,6 +30,7 @@ public class Total {
 	private String station_name;
 	private String english_name;
 	private String station_add;
+	@Column()
 	private String transfer_parking;
 	private String cycle_locker;
 	private String locker;

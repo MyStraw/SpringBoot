@@ -19,14 +19,13 @@ import lombok.ToString;
 @AllArgsConstructor
 @Builder
 @Entity
-@Table(name = "trainnuminfo")
-public class Timeinfo {	
+@Table(name = "times")
+public class Times {	
 	@Id	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long Seq;
 	private Long TrainNo;
 	private Long StationCode;
 	private String ArriveTime;
-	private String DepartTime;
-	
+	private String DepartTime;	
 
 }

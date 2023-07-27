@@ -1,8 +1,7 @@
 package edu.pnu.domain;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -19,18 +18,15 @@ import lombok.ToString;
 @AllArgsConstructor
 @Builder
 @Entity
-@Table(name = "trainnuminfo")
-
-public class Trainnuminfo {
-	@Id	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long Seq;
-	private Long TrainNum;
-	private String LineNum;
-	private Long Start;
-	private Long End;
-	private String WeekDayHoliDay;
-	
-	
-	
-
+@Table(name = "stations")
+public class Stations {
+	@Id	
+	private Long StationCode;
+	private String StationName;
+	private String StationNameplus;
+	private String EnglishName;
+	private String Tel;
+	private String Address;
+	@Column(length = 1000)
+	private String History;
 }

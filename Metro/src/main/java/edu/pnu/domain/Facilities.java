@@ -17,8 +17,8 @@ import lombok.ToString;
 @AllArgsConstructor
 @Builder
 @Entity
-@Table(name = "totalfacility")
-public class Totalfacility {
+@Table(name = "facilities")
+public class Facilities {
 	@Id	
 	private Long StationCode;
 	private String LineNum;

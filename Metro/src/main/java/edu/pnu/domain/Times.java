@@ -22,10 +22,10 @@ import lombok.ToString;
 @Table(name = "times")
 public class Times {	
 	@Id	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long Seq;
-	private Long TrainNo;
-	private Long StationCode;
-	private String ArriveTime;
-	private String DepartTime;	
+	private Long seq;
+	private Long train_startseq;
+	private Long station_code;
+	private String arrive_time;
+	private String depart_time;	
 
 }

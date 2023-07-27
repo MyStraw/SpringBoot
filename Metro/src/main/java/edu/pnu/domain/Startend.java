@@ -24,9 +24,9 @@ import lombok.ToString;
 public class Startend{
 	@Id	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long Seq;
-	private Long TrainNum;
-	private String LineNum;
-	private Long Start;
-	private Long End;
-	private String WeekDayHoliDay;
+	private Long train_num;
+	private String line_num;
+	private Long start;
+	private Long end;
+	private String day_weekend;
 }

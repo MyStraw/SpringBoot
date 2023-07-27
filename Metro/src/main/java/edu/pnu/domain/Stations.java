@@ -21,12 +21,12 @@ import lombok.ToString;
 @Table(name = "stations")
 public class Stations {
 	@Id	
-	private Long StationCode;
-	private String StationName;
-	private String StationNameplus;
-	private String EnglishName;
-	private String Tel;
-	private String Address;
+	private Long station_code;
+	private String station_name;
+	private String stationname_plus;
+	private String english_name;
+	private String tel;
+	private String address;
 	@Column(length = 1000)
-	private String History;
+	private String history;
 }

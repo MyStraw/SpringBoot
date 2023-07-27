@@ -20,25 +20,25 @@ import lombok.ToString;
 @Table(name = "facilities")
 public class Facilities {
 	@Id	
-	private Long StationCode;
-	private String LineNum;
-	private String StationNameplus;
-	private String AboveUnder;
-	private Boolean Floor;
-	private Boolean Connection;
-	private Boolean TransferParking;
-	private Boolean CycleLocker;
-	private Boolean MeetPlace;
-	private Boolean Locker;
-	private Boolean Photo;
-	private Boolean DocMachine;
-	private Boolean BabyMilk;
-	private Boolean WheelLift;
-	private Boolean ElevatorInside;
-	private Boolean ElevatorOut;
-	private Boolean Escalator;
-	private Boolean BlindWay;
-	private Boolean ExternalRamp;
-	private Boolean EmergencyPhone;
-	private Boolean Police;	
+	private Long station_code;		
+	private String line_num;	
+	private String stationname_plus;		
+	private String above_under;	
+	private Boolean floor;	
+	private Boolean connector;	
+	private Boolean transfer_parking;	
+	private Boolean cycle_locker;		
+	private Boolean meet_place;		
+	private Boolean locker;		
+	private Boolean photo;	
+	private Boolean doc_machine;		
+	private Boolean baby_milk;		
+	private Boolean wheel_lift;
+	private Boolean elevator_inside;
+	private Boolean elevator_out;	
+	private Boolean escalator;
+	private Boolean blind_way;	
+	private Boolean external_ramp;
+	private Boolean emergency_phone;	
+	private Boolean police;	
 }

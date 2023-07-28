@@ -20,9 +20,7 @@ import lombok.ToString;
 @Table(name = "facilities")
 public class Facilities {
 	@Id	
-	private Long station_code;		
-	private String line_num;	
-	private String stationname_plus;		
+	private Long station_code;	
 	private String above_under;	
 	private Boolean floor;	
 	private Boolean connector;	

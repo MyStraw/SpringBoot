@@ -3,23 +3,24 @@ package edu.pnu.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import edu.pnu.domain.Facilities;
 import edu.pnu.domain.Startend;
-import edu.pnu.domain.Stations;
+import edu.pnu.domain.Station;
 import edu.pnu.domain.Times;
 import edu.pnu.persistence.FacilitiesRepository;
 import edu.pnu.persistence.StartendRepository;
-import edu.pnu.persistence.StationsRepository;
+import edu.pnu.persistence.StationRepository;
 import edu.pnu.persistence.TimesRepository;
 
 @RestController
 public class MetroController {
 	
 	@Autowired
-	StationsRepository stationsRepo;
+	StationRepository stationRepo;
 	
 	@Autowired
 	FacilitiesRepository facilitiesRepo;	
@@ -29,12 +30,11 @@ public class MetroController {
 	
 	@Autowired
 	TimesRepository timesRepo;	
-
 	
-	
-	@GetMapping("/stations")
-	public List<Stations> getStations() {
-		return stationsRepo.findAll();
+//    @CrossOrigin(origins = "http://localhost:3000")
+	@GetMapping("/station")
+	public List<Station> getStation() {
+		return stationRepo.findAll();
 	}
 	
 	@GetMapping("/facilities")

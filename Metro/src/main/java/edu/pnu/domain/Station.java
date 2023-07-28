@@ -18,10 +18,11 @@ import lombok.ToString;
 @AllArgsConstructor
 @Builder
 @Entity
-@Table(name = "stations")
-public class Stations {
+@Table(name = "station")
+public class Station {
 	@Id	
 	private Long station_code;
+	private String line_num;
 	private String station_name;
 	private String stationname_plus;
 	private String english_name;

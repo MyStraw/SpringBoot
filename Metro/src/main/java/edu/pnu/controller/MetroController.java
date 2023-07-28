@@ -52,9 +52,9 @@ public class MetroController {
 		return timesRepo.findAll();
 	}
 	
-	
+//	
 //	@GetMapping("/train/{trainNo}/{start}")
-//	public List<Train> getTrainByTrainNo(@PathVariable Long trainNo, @PathVariable String start) {
+//	public List<Station> getStationBystation_code(@PathVariable Long trainNo, @PathVariable String start) {
 //	    return trainRepo.findByTrainNoAndStart(trainNo,start);
 //	}
 	

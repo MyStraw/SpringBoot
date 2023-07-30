@@ -35,8 +35,7 @@ public class MetroController {
 	@GetMapping("/station")
 	public List<Station> getStation() {
 		return stationRepo.findAll();
-	}
-	
+	}	
 
 	
 	@GetMapping("/facilities")

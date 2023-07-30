@@ -1,9 +1,9 @@
 package edu.pnu.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -36,6 +36,8 @@ public class MetroController {
 	public List<Station> getStation() {
 		return stationRepo.findAll();
 	}
+	
+
 	
 	@GetMapping("/facilities")
 	public List<Facilities> getFacilities() {

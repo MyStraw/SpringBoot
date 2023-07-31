@@ -20,8 +20,8 @@ import lombok.ToString;
 @Entity
 @Table(name = "station")
 public class Station {
-	@Id	
-	private Long station_code;
+	@Id	@Column(name = "station_code")
+	private Integer stationcode;
 	private String line_num;
 	private String station_name;
 	private String stationname_plus;

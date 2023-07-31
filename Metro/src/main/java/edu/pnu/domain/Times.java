@@ -20,11 +20,13 @@ import lombok.ToString;
 @Builder
 @Entity
 @Table(name = "times")
+
+
 public class Times {	
 	@Id	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long seq;
-	private Long train_startseq;
-	private Long station_code;
+	private Integer seq;
+	private Integer train_startseq;
+	private Integer station_code;
 	private String arrive_time;
 	private String depart_time;	
 

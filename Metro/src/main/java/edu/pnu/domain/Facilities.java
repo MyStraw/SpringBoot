@@ -1,5 +1,6 @@
 package edu.pnu.domain;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
@@ -19,8 +20,8 @@ import lombok.ToString;
 @Entity
 @Table(name = "facilities")
 public class Facilities {
-	@Id	
-	private Long station_code;	
+	@Id	@Column(name = "station_code")
+	private Integer stationcode;	
 	private String above_under;	
 	private Boolean floor;	
 	private Boolean connector;	

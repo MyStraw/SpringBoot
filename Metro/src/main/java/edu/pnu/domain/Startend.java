@@ -23,10 +23,10 @@ import lombok.ToString;
 
 public class Startend{
 	@Id	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long Seq;
-	private Long train_num;
+	private Integer seq;
+	private Integer train_num;
 	private String line_num;
-	private Long start;
-	private Long end;
+	private Integer start;
+	private Integer end;
 	private String day_weekend;
 }

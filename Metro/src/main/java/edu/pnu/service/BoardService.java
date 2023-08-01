@@ -18,7 +18,7 @@ public class BoardService {
 		return boardRepo.findAll();
 	}
 	
-	@PreAuthorize("hasAnyRole('MANAGER', 'ADMIN')")
+	@PreAuthorize("hasAnyRole('MEMBER', 'MANAGER', 'ADMIN')")
 	public Board create(Board board) {		
 		return boardRepo.save(board);
 	}

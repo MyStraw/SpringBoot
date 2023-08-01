@@ -1,5 +1,10 @@
 package edu.pnu.domain;
 
+import java.util.Collection;
+
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.AuthorityUtils;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -27,4 +32,7 @@ public class Member {
 	private String role;
 	@Column(columnDefinition = "TINYINT(1)")
 	private boolean enabled;
+	public Collection<? extends GrantedAuthority> getAuthorities(){
+		return AuthorityUtils.createAuthorityList(role);
+	}
 }

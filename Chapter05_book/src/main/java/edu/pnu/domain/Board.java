@@ -38,7 +38,5 @@ public class Board {
 	@Temporal(TemporalType.TIMESTAMP) //JPA에서 날짜와 시간 유형을 DB에 매핑하는 방법을 지정하는 어노테이션
 	private Date createDate;
 	private Long cnt;
-	
-	
 
 }

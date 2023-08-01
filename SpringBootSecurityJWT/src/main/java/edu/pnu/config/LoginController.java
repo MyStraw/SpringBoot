@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class LoginController {
 
-
 	@GetMapping("/login")
 	public void login() {}
 	
@@ -22,6 +21,5 @@ public class LoginController {
 	@GetMapping("/auth")
 	public @ResponseBody String auth(@AuthenticationPrincipal User user) {
 		return user.toString();
-	}
-	
+	}	
 }

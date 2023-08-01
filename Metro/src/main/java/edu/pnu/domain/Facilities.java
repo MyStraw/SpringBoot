@@ -23,7 +23,7 @@ public class Facilities {
 	@Id	@Column(name = "station_code")
 	private Integer stationcode;	
 	private String above_under;	
-	private Boolean floor;	
+	private Integer floor;	
 	private Boolean connector;	
 	private Boolean transfer_parking;	
 	private Boolean cycle_locker;		

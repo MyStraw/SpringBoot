@@ -24,4 +24,16 @@ public class MemberService {
         return memberRepo.save(member);
     }
     // 로그인 서비스는 JWT 필터를 사용하여 처리
+    
+    
+    
+//    public void register(Member member) throws Exception {
+//        // 비밀번호 암호화
+//        member.setPassword(passwordEncoder.encode(member.getPassword()));
+//        // ROLE 설정
+//        member.setRole("ROLE_MEMBER");
+//        member.setEnabled(true);
+//        // 저장
+//        memberRepo.save(member);
+//    }
 }

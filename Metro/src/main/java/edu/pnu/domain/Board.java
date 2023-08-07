@@ -1,5 +1,6 @@
 package edu.pnu.domain;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -29,5 +30,7 @@ public class Board {
 	private String title;
 	private String content;
 	private String author;
+	@Column(name = "station_code")
+	private Integer stationcode;
 
 }

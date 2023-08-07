@@ -38,10 +38,10 @@ public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
 			return;
 		}
 
+		//누군지 해석
 		String jwtToken = srcToken.replace("Bearer ", "");
 		String username = JWT.require(Algorithm.HMAC256("edu.pnu.jwtkey")).build().verify(jwtToken).getClaim("username")
 				.asString();
-
 		Optional<Member> opt = memRepo.findById(username);
 		if (!opt.isPresent()) {
 			chain.doFilter(request, response);

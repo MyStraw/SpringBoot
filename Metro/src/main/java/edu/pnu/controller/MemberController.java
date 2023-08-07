@@ -10,7 +10,6 @@ import edu.pnu.domain.Member;
 import edu.pnu.service.MemberService;
 
 @RestController
-@RequestMapping("/api")
 public class MemberController {
 
 	@Autowired
@@ -18,10 +17,13 @@ public class MemberController {
 
 	@PostMapping("/register")
 	public String register(@RequestBody Member member) {
-		memberService.registerMember(member);
-		return "회원가입 성공";
+		if (memberService.registerMember(member) != null) {
+			return "회원가입 성공";
+		} else {
+			return "회원가입 실패";
+		}
 	}
-	
+
 //	@PostMapping("/register")
 //	public ResponseEntity<Map<String, String>> register(@RequestBody Member member) {
 //	    memberService.registerMember(member);

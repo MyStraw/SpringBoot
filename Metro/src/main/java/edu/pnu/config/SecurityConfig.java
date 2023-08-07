@@ -29,17 +29,18 @@ public class SecurityConfig {
 	@Autowired
 	private MemberRepository memberRepo;
 
+	@SuppressWarnings("removal")
 	@Bean
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
 		http.csrf(csrf -> csrf.disable());
 		///http.cors(cors -> cors.disable());
-		
+		http.cors();
 		
 		http.authorizeHttpRequests(security -> {
-			security.requestMatchers("/member/**").authenticated()
-					.requestMatchers("/manager/**").hasAnyRole("MANAGER", "ADMIN")
-					.requestMatchers("/admin/**").hasRole("ADMIN") //자동으로 ROLE_ 이걸 넣어서 읽는다. 그래서 테이블엔 ROLE_ADMIN으로 넣어야.
+			security.requestMatchers("/board/create/**").authenticated()
+					.requestMatchers("/board/update/**").hasAnyRole("MANAGER", "ADMIN")
+					.requestMatchers("/board/delete/**").hasRole("ADMIN") //자동으로 ROLE_ 이걸 넣어서 읽는다. 그래서 테이블엔 ROLE_ADMIN으로 넣어야.
 					.anyRequest().permitAll();
 		});
 

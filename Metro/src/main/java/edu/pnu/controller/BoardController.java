@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,18 +21,25 @@ import edu.pnu.service.BoardService;
 public class BoardController {
 
     @Autowired
-    private BoardService boardService;
+    private BoardService boardService; 
+    
 
     @PostMapping("/create")
-    public Board create(@RequestBody Board board) { //Board board가 이미 받아온 json이다. Board 타입의 board 객체. 
+    public Board create(@RequestHeader("Authorization") String authorizationHeader, @RequestBody Board board) { //Board board가 이미 받아온 json이다. Board 타입의 board 객체. 
     	//Requestbody가 client에서 보내온 json 정보이다. 
-        return boardService.create(board);
+        return boardService.create(authorizationHeader, board);
     }
 
     @GetMapping("/list")
     public List<Board> list() {
         return boardService.list();
     }
+    
+    @GetMapping("/list/{stationcode}")
+    public List<Board> listStationCode(@PathVariable int stationcode){
+    	return boardService.listStationCode(stationcode);
+    }    
+    
 
     @PutMapping("/update/{id}")
     public Board update(@PathVariable Integer id, @RequestBody Board board) {

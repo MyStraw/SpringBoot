@@ -67,9 +67,20 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 				.withClaim("username", user.getUsername())
 				.withExpiresAt(new Date(System.currentTimeMillis() + 1000 * 60 * 10))
 				.sign(Algorithm.HMAC256("edu.pnu.jwtkey"));
+		
+	
 
 		response.addHeader("Authorization", "Bearer " + jwtToken);
-		chain.doFilter(request, response);
+		
+		
+		response.setContentType("application/json");
+		response.setCharacterEncoding("UTF-8");
+		response.getWriter().write("{\"message\":\"로그인 성공\"}");
+		// ,\"token\":\"" + jwtToken + "\"
+		response.getWriter().flush(); // 출력 스트림 플러시
+		response.getWriter().close(); // 출력 스트림 종료
+//		chain.doFilter(request, response);
+	
 
 	}
 }

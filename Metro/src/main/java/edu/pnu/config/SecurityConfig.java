@@ -28,16 +28,29 @@ public class SecurityConfig {
 
 	@Autowired
 	private MemberRepository memberRepo;
-
+	
 	@SuppressWarnings("removal")
+	@Autowired
+	
+//	@Qualifier("corsConfigurationSource") //이거 없으면 @Bean에 2개가 올라가서 뭘 골라야 할지 모른다. WebConfig에 있는걸 고르게 하자.
+//	private CorsConfigurationSource corsConfigurationSource
+	
 	@Bean
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
 		http.csrf(csrf -> csrf.disable());
-		///http.cors(cors -> cors.disable());
+		///http.cors(cors -> cors.disable());	
 		http.cors();
 		
-		http.authorizeHttpRequests(security -> {
+//		  http.cors(cors -> {
+//		        cors.configurationSource(corsConfigurationSource);
+//		    });
+		
+		
+
+		
+		
+		http.authorizeHttpRequests(security -> { //여기서 권한별 설정
 			security.requestMatchers("/board/create/**").authenticated()
 					.requestMatchers("/board/update/**").hasAnyRole("MANAGER", "ADMIN")
 					.requestMatchers("/board/delete/**").hasRole("ADMIN") //자동으로 ROLE_ 이걸 넣어서 읽는다. 그래서 테이블엔 ROLE_ADMIN으로 넣어야.

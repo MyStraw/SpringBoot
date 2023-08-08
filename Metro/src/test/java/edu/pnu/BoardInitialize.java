@@ -14,11 +14,14 @@ public class BoardInitialize {
 
 	@Test
 	public void doWork() {
+		for(int i = 1 ; i<=20 ; i++) {
 		boardRepo.save(Board.builder()
-				.title("냐하하")
-				.content("뇨호호호호호")
-				.author("EMBER")
+				.title("냐하하"+i)
+				.content("뇨호호호호호"+i)
+				.author("MEMBER"+i)
+				.stationcode(400+i/4)
 				.build());
+		}
 	}
 
 }
